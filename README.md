@@ -1,4 +1,4 @@
-Link to watch the project
+Link to watch the project: https://social-network-react-gold.vercel.app/
 
 # Getting Started with Create React App
 
