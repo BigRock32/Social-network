@@ -1,0 +1,18 @@
+.item{
+   padding-bottom: 10px;
+   border-bottom: 1px solid rgb(131, 131, 131);
+}
+
+.item:last-child{
+   border: none;
+}
+
+.item img{
+   width: 50px;
+   border-radius: 50px;
+}
+
+.itemRow{
+   display: flex;
+   gap: 20px;
+}

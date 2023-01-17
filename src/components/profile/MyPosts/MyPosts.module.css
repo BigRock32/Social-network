@@ -1,0 +1,13 @@
+.posts{
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   margin-top: 30px;
+}
+
+.addPost{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+}
+
