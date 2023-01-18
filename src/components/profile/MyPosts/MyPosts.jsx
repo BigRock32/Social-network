@@ -1,14 +1,13 @@
 import st from './MyPosts.module.css'
 import Post from './Post/Post';
 import {React, useRef} from 'react';
-import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profile-reducer';
 
 
 
 
 const MyPosts = (props) => {
 
-   let postsElements = props.posts.map(post => <Post message={post.message} likes={post.likes} />)
+   let postsElements = props.posts.map(post => <Post message={post.message} key={post.id} likes={post.likes} />)
 
    let newPostElement = useRef()
 

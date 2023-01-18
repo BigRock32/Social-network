@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Friends from './Friends/Friends';
+import FriendsContainer from './Friends/Friend/FriendContainer';
 import st from './Navbar.module.css'
 
 const SelectedLink = () => {
@@ -20,6 +20,9 @@ const Navbar = (props) => {
                <NavLink to='/dialogs' className={SelectedLink()}>Messeges</NavLink>
             </div>
             <div className={st.item}>
+               <NavLink to='/users' className={SelectedLink()}>Users</NavLink>
+            </div>
+            <div className={st.item}>
                <NavLink to='/news' className={SelectedLink()}>News</NavLink>
             </div>
             <div className={st.item}>
@@ -29,7 +32,7 @@ const Navbar = (props) => {
                <NavLink to='/settings' className={SelectedLink()}>Settings</NavLink>
             </div>
 
-            <Friends friends={props.state.friends} />
+            <FriendsContainer />
          </nav>
       </div>
    );

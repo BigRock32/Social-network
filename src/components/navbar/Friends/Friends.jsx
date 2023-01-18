@@ -5,7 +5,7 @@ import st from './Friends.module.css'
 
 const Friends = (props) => {
 
-   let friendsElement = props.friends.map(friend => <Friend name={friend.name} />)
+   let friendsElement = props.friends.map(friend => <Friend name={friend.name} key={friend.id} />)
    return (
       <div className={st.friends}>
          <h2>Friends</h2>
