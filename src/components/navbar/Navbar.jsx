@@ -8,7 +8,7 @@ const SelectedLink = () => {
    )
 }
 
-const Navbar = (props) => {
+const Navbar = () => {
 
    return (
       <div className={st.sideBar}>
