@@ -1,6 +1,9 @@
 import st from './Users.module.css'
 
 import userPhoto from './../../media/post-avatar.png'
+import { NavLink } from 'react-router-dom'
+import axios from 'axios'
+import { usersAPI } from '../../api/api'
 
 const Users = (props) => {
 
@@ -14,17 +17,37 @@ const Users = (props) => {
 
    return (
       <div>
-         <div>
+         <div className={st.pages}>
             {pages.map(page => {
                return <span className={props.currentPage === page && st.selectedPage} onClick={(e) => { props.onPageChanged(page) }} >{page}</span>
             })}
          </div>
          {
             props.users.map(user => <div className={st.user} key={user.id}>
-               <img src={user.photos.small != null ? user.photos.small : userPhoto} alt="userPhoto" />
+               <NavLink to={'/profile/' + user.id} >
+                  <img src={user.photos.small != null ? user.photos.small : userPhoto} alt="userPhoto" />
+               </NavLink>
 
                {
-                  user.followed ? <button onClick={() => { props.unfollow(user.id) }}>unfollow</button> : <button onClick={() => { props.follow(user.id) }}>follow</button>
+                  user.followed
+                     ? <button onClick={() => {
+
+                        usersAPI.unfollowUser(user).then(data => {
+                           if (data.resultCode == 0) {
+                              props.unfollow(user.id)
+                           }
+                        })
+
+                     }}>unfollow</button>
+                     : <button onClick={() => {
+
+                        usersAPI.followUser(user).then(data => {
+                           if (data.resultCode == 0) {
+                              props.follow(user.id)
+                           }
+                        })
+
+                     }}>follow</button>
                }
 
                <div className={st.content}>

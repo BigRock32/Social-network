@@ -4,6 +4,21 @@
    border-radius: 50px;
 }
 
+.pages{
+   display: flex;
+   gap: 5px;
+   width: 100ch;
+   overflow: auto;
+}
+
+.pages .-webkit-scrollbar{
+   
+}
+
+.pages span{
+   cursor: pointer;
+}
+
 .selectedPage{
    font-weight: bold;
 }
