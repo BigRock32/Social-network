@@ -2,8 +2,6 @@ import st from './Users.module.css'
 
 import userPhoto from './../../media/post-avatar.png'
 import { NavLink } from 'react-router-dom'
-import axios from 'axios'
-import { usersAPI } from '../../api/api'
 
 const Users = (props) => {
 
@@ -30,24 +28,16 @@ const Users = (props) => {
 
                {
                   user.followed
-                     ? <button onClick={() => {
+                     ? <button disabled={props.followingInProgress.some(id => id === user.id)}
 
-                        usersAPI.unfollowUser(user).then(data => {
-                           if (data.resultCode == 0) {
-                              props.unfollow(user.id)
-                           }
-                        })
+                        onClick={() => { props.unfollow(user.id) }}>
 
-                     }}>unfollow</button>
-                     : <button onClick={() => {
+                        unfollow</button>
+                     : <button disabled={props.followingInProgress.some(id => id === user.id)}
 
-                        usersAPI.followUser(user).then(data => {
-                           if (data.resultCode == 0) {
-                              props.follow(user.id)
-                           }
-                        })
+                        onClick={() => { props.follow(user.id) }}>
 
-                     }}>follow</button>
+                        follow</button>
                }
 
                <div className={st.content}>
